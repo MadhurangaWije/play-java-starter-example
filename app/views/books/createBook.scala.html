@@ -1,0 +1,26 @@
+@(bookForm: Form[Book])
+
+
+@layout("Create Book"){
+    <p>Create Book Form</p>
+
+    @helper.form(action = routes.BookController.save()){
+        @helper.CSRF.formField
+        @helper.inputText(bookForm("id"))
+        @helper.CSRF.formField
+        @helper.inputText(bookForm("title"))
+        @helper.CSRF.formField
+        @helper.inputText(bookForm("price"))
+        @helper.CSRF.formField
+        @helper.inputText(bookForm("author"))
+
+        <input type="submit" value="Create Book">
+
+    }
+
+    <div>
+        <p><a href="@routes.BookController.index()">Home</a></p>
+
+    </div>
+}
+

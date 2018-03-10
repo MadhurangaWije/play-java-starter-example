@@ -1,0 +1,29 @@
+@(books: List[Book])
+
+@layout("Books"){
+    @for(book <- books){
+
+        <div style="border: 3px solid silver">
+            <p>@book.id</p>
+            <a href="#"> @book.title </a>
+            <p>@book.price</p>
+            <p>@book.author</p>
+            <p><a href="@routes.BookController.edit(book.id)">Edit</a></p>
+            <p><a href="@routes.BookController.destroy(book.id)">Delete</a></p>
+            <br>
+            <br>
+            <br>
+        </div>
+
+
+    }
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <div>
+        <a href="@routes.BookController.create()">Add New Book</a>
+    </div>
+}
+

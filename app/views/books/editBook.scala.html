@@ -1,0 +1,26 @@
+@(bookForm:Form[Book])
+
+@layout("Edit Book"){
+    <p>Edit Book details</p>
+
+    @helper.form(action = routes.BookController.update()){
+        @helper.CSRF.formField
+        @helper.inputText(bookForm("id"))
+        @helper.CSRF.formField
+        @helper.inputText(bookForm("title"))
+        @helper.CSRF.formField
+        @helper.inputText(bookForm("price"))
+        @helper.CSRF.formField
+        @helper.inputText(bookForm("author"))
+
+        <input type="submit" value="Update Book">
+    }
+
+    <div>
+
+
+        <p><a href="@routes.BookController.index()">Home</a></p>
+    </div>
+}
+
+
